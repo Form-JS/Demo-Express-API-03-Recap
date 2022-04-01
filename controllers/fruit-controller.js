@@ -10,6 +10,10 @@ const fruitController = {
     getOne: (req, res) => {
         const targetId = parseInt(req.params.id);
         const fruit = fruitModel.getById(targetId);
+
+        if(!fruit) {
+            res.sendStatus(404);
+        }
         res.status(200).json(fruit);
     },
 
