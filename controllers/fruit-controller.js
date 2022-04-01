@@ -8,7 +8,7 @@ const fruitController = {
     },
 
     getOne: (req, res) => {
-        const targetId = req.params.id;
+        const targetId = parseInt(req.params.id);
         const fruit = fruitModel.getById(targetId);
         res.status(200).json(fruit);
     },
@@ -32,7 +32,7 @@ const fruitController = {
     },
 
     delete: (req, res) => {
-        const targetId = req.params.id;
+        const targetId = parseInt(req.params.id);
 
         const isOk = fruitModel.delete(targetId);
 
